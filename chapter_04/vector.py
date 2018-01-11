@@ -1,7 +1,7 @@
 """
 Vector arithmetic
 
-Code from Chapter 2 of Data Science from Scratch
+Code from Chapter 4 of Data Science from Scratch
 """
 import math
 from functools import reduce

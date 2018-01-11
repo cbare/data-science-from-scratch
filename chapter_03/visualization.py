@@ -1,7 +1,7 @@
 """
 Visualization
 
-Code from Chapter 2 of Data Science from Scratch
+Code from Chapter 3 of Data Science from Scratch
 """
 import matplotlib.pyplot as plt
 
