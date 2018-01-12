@@ -3,7 +3,9 @@ Stats
 
 Code from Chapter 5 of Data Science from Scratch
 """
+import math
 from collections import Counter
+from vector import dot
 
 def find_bin(x, breaks):
     """
@@ -51,3 +53,41 @@ def median(v):
         hi = midpoint
         return (sorted_v[lo] + sorted_v[hi]) / 2
 
+def quantile(x, p):
+    """returns the pth-percentile value in x"""
+    p_index = int(p * len(x))
+    return sorted(x)[p_index]
+
+def interquartile_range(x):
+    return quantile(x, 0.75) - quantile(x, 0.25)
+
+def mode(x):
+    """returns a list, might be more than one mode"""
+    counts = Counter(x)
+    max_count = max(counts.values())
+    return [x_i for x_i, count in counts.iteritems()
+            if count == max_count]
+
+def de_mean(xs):
+    mu = mean(xs)
+    return ((x-mu) for x in xs)
+
+def variance(xs):
+    mu = mean(xs)
+    n = len(xs)
+    return sum((x-mu)**2 for x in xs) / (n-1)
+
+def standard_deviation(xs):
+    return math.sqrt(variance(xs))
+
+def covariance(x, y):
+    n = len(x)
+    return dot(de_mean(x), de_mean(y)) / (n-1)
+
+def correlation(x, y):
+    stdev_x = standard_deviation(x)
+    stdev_y = standard_deviation(y)
+    if stdev_x > 0 and stdev_y > 0:
+        return covariance(x, y) / stdev_x / stdev_y
+    else:
+        return 0 # if no variation, correlation is zero
