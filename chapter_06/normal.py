@@ -40,10 +40,6 @@ plt.show()
 def inverse_normal_cdf(p, mu=0, sigma=1, tolerance=0.00001):
     """find approximate inverse using binary search"""
 
-    # if not standard, compute standard and rescale
-    if mu != 0 or sigma != 1:
-        return mu + sigma * inverse_normal_cdf(p, tolerance=tolerance)
-
     low_z, low_p = -10.0, 0
     hi_z, hi_p = 10.0, 1
     while hi_z - low_z > tolerance:
@@ -59,7 +55,7 @@ def inverse_normal_cdf(p, mu=0, sigma=1, tolerance=0.00001):
         else:
             break
 
-    return mid_z
+    return mu + sigma * mid_z
 
 
 inverse_normal_cdf(0.25)

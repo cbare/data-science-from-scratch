@@ -1,4 +1,4 @@
-# Data Science for Scratch
+# Data Science from Scratch
 
 Examples and hacks inspired by Joel Grus' [Data Science from Scratch][1].
 
