@@ -43,4 +43,5 @@ def make_hist(p, n, num_points):
     plt.title("Binomial Distribution vs. Normal Approximation")
     plt.show()
 
-make_hist(0.75, 100, 10000)
+if __name__ == '__main__':
+    make_hist(0.75, 100, 10000)
