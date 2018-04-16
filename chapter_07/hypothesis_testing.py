@@ -64,9 +64,13 @@ def plot_detect_biased_coin(m=1000):
     Empirically test how often a test at a p-value of 0.05 would
     call a coin fair at varying levels of bias for each of 4
     sample sizes.
+
+    m = number of experiments
+    n = sample size, number of trials in each experiment
+    p = probability of successful trial
     """
     for n,marker in zip([100,500,1000,5000],['-','--',':','-.']):
-        ps = (0.4 + i/300  for i in range(60))
+        ps = [0.4 + i/300  for i in range(60)]
         looks_fair_percent = []
         mu_0, sigma_0 = normal_approximation_to_binomial(n, 0.5)
         lo, hi = normal_two_sided_bounds(0.95, mu_0, sigma_0)
@@ -79,7 +83,7 @@ def plot_detect_biased_coin(m=1000):
     plt.legend(loc=2)
     plt.title('How much bias can we detect?')
     plt.ylabel('fraction of experiments that look fair')
-    plt.xlabel('p')
+    plt.xlabel('probability of successful trial (p)')
     plt.show()
 
 
@@ -142,4 +146,34 @@ def count_extreme_values(n, p, lo, hi, m=10000):
         if num_heads >= hi or num_heads <= lo:
             extreme_value_count += 1
     return extreme_value_count
+
+
+def confidence_interval(n, m, p=0.5, confidence=0.95):
+    """
+    How often does "fair" (0.5) lie within the confidence interval?
+
+    m = number of experiments
+    n = number of trials in an experiment
+    p = true probability of success
+    confidence = size of confidence interval
+    """
+    fair = 0
+    for _ in range(m):
+        p_hat = binomial(n, p) / n
+        sigma_hat = math.sqrt(p_hat * (1 - p_hat) / (n-1))
+        lo, hi = normal_two_sided_bounds(confidence, mu=p_hat, sigma=sigma_hat)
+        fair += 1 if lo <= 0.5 <= hi else 0
+    return fair / m
+
+
+def estimated_parameters(N, n):
+    p = n / N
+    sigma = math.sqrt(p * (1 - p) / N)
+    return p, sigma
+
+def a_b_test_statistic(N_A, n_A, N_B, n_B):
+    p_A, sigma_A = estimated_parameters(N_A, n_A)
+    p_B, sigma_B = estimated_parameters(N_B, n_B)
+    return (p_B - p_A) / math.sqrt(sigma_A**2 + sigma_B**2)
+
 
