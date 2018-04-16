@@ -177,3 +177,56 @@ def a_b_test_statistic(N_A, n_A, N_B, n_B):
     return (p_B - p_A) / math.sqrt(sigma_A**2 + sigma_B**2)
 
 
+def B(alpha, beta):
+    """a normalizing constant so that the total probability is 1"""
+    return math.gamma(alpha) * math.gamma(beta) / math.gamma(alpha + beta)
+
+
+def beta_pdf(x, alpha, beta):
+    if x < 0 or x > 1: # no weight outside of [0, 1]
+        return 0
+    return x**(alpha-1) * (1-x)**(beta-1) / B(alpha, beta)
+
+
+def plot_beta_distributions():
+    params = [
+        (1, 1),
+        (10, 10),
+        (4, 16),
+        (16, 4)]
+    markers = ['-','--',':','-.']
+    xs = [i/100 for i in range(100)]
+    for (alpha, beta), marker in zip(params, markers):
+        pd = [beta_pdf(x, alpha, beta) for x in xs]
+        label = f'beta({alpha}, {beta})'
+        plt.plot(xs, pd, marker, label=label)
+
+    plt.legend(loc=2)
+    plt.title('Beta distributions')
+    plt.show()
+
+
+def updating_belief(n, p=0.75, alpha=1, beta=1):
+    """
+    Plot updating beliefs starting with a prior alpha and beta
+    and updating with 'n' observations.
+    """
+    xs = [i/100 for i in range(100)]
+    pd = [beta_pdf(x, alpha, beta) for x in xs]
+    label = f'beta({alpha}, {beta})'
+    color = (0x33/255, 0x66/255, 0x99/255, 55/255)
+    plt.plot(xs, pd, label=label, color=color)
+    for i in range(1, n):
+        outcome = bernoulli_trial(p)
+        alpha += 1 if outcome else 0
+        beta += 0 if outcome else 1
+
+        if i % 10 == 0:
+            pd = [beta_pdf(x, alpha, beta) for x in xs]
+            label = f'beta({alpha}, {beta})'
+            color = (0x33/255, 0x66/255, 0x99/255, int(55+i/n*200)/255)
+            plt.plot(xs, pd, label=label, color=color)
+
+    plt.legend(loc=2)
+    plt.title('Updating belief')
+    plt.show()
