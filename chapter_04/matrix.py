@@ -11,12 +11,10 @@ def rows(A):
     return len(A)
 
 def cols(A):
-    return len(A[0]) if A else 0
+    return A.shape[1] if hasattr(A, 'shape') else (len(A[0]) if A else 0)
 
 def shape(A):
-    num_rows = len(A)
-    num_cols = len(A[0]) if A else 0   # number of elements in first row
-    return num_rows, num_cols
+    return rows(A), cols(A)
 
 def get_row(A, i):
     return A[i]
