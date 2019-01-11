@@ -7,23 +7,23 @@ Examples and hacks inspired by Joel Grus' [Data Science from Scratch][1].
 
 ## Chapters
 
-01. (Introduction)[chapter_01]
+01. [Introduction](chapter_01)
 02. A Crash Course in Python
-03. (Visualizing Data)[chapter_03]
-04. (Linear Algebra)[chapter_04]
-05. (Statistics)[chapter_05]
-06. (Probability)[chapter_06]
-07. (Hypothesis and Inference)[chapter_07]
-08. (Gradient Descent)[chapter_08]
-09. (Getting Data)[chapter_09]
-10. (Working with Data)[chapter_10]
-11. (Machine Learning)[chapter_11]
-12. (k-Nearest Neighbors)[chapter_12]
-13. (Naive Bayes)[chapter_13]
-14. (Simple Linear Regression)[chapter_14]
-15. (Multiple Regression)[chapter_15]
-16. (Logistic Regression)[chapter_16]
-17. (Decision Trees)[chapter_17]
+03. [Visualizing Data](chapter_03)
+04. [Linear Algebra](chapter_04)
+05. [Statistics](chapter_05)
+06. [Probability](chapter_06)
+07. [Hypothesis and Inference](chapter_07)
+08. [Gradient Descent](chapter_08)
+09. [Getting Data](chapter_09)
+10. [Working with Data](chapter_10)
+11. [Machine Learning](chapter_11)
+12. [k-Nearest Neighbors](chapter_12)
+13. [Naive Bayes](chapter_13)
+14. [Simple Linear Regression](chapter_14)
+15. [Multiple Regression](chapter_15)
+16. [Logistic Regression](chapter_16)
+17. [Decision Trees](chapter_17)
 18. Neural Networks
 19. Clustering
 20. Natural Language Processing
