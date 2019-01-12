@@ -24,7 +24,7 @@ Examples and hacks inspired by Joel Grus' [Data Science from Scratch][1].
 15. [Multiple Regression](chapter_15)
 16. [Logistic Regression](chapter_16)
 17. [Decision Trees](chapter_17)
-18. Neural Networks
+18. [Neural Networks](chapter_18)
 19. Clustering
 20. Natural Language Processing
 21. Network Analysis
