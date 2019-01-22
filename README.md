@@ -48,6 +48,8 @@ I had little problem using Python 3 to work through the book even though it's do
 
 * [Building a deep learning library](https://www.youtube.com/watch?v=o64FV-ez6Gw)
 
+* [100+ Interesting Data Sets for Statistics](http://rs.io/100-interesting-data-sets-for-statistics/) by Robb Seaton
+
 
 ## Note:
 
