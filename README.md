@@ -11,7 +11,7 @@ I had a lot of fun with this book. Data science lends itself to the hacker's app
 
 That said, the book gives a fly-over view of some fairly deep subjects, leaving the reader with a good lay of the land but also an  intimidating sense of how much there is left to learn.
 
-I had little problem using Python 3 to work through the book even though it's done in Python 2. You'll have to add some parentheses here and there and be aware that map is a generator in Python 3. The 2nd Edition is fully Python 3 and in the works now.
+I had little problem using Python 3 to work through the book even though it's done in Python 2. You'll have to add some parentheses here and there and be aware that map is a generator in Python 3. The [2nd Edition][4] is fully Python 3 and in the works now.
 
 
 ## Chapters
@@ -73,3 +73,4 @@ sys.path.extend(os.path.join(book_dir, 'chapter_{:02d}'.format(i)) for i in [3,4
 [1]: http://shop.oreilly.com/product/0636920033400.do
 [2]: https://github.com/joelgrus/data-science-from-scratch
 [3]: http://joelgrus.com/
+[4]: https://www.oreilly.com/library/view/data-science-from/9781492041122/
